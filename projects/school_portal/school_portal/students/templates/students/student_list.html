@@ -1,0 +1,21 @@
+<!-- students/templates/students/student_list.html -->
+<!DOCTYPE html>
+<html>
+<head><title>School Portal</title></head>
+<body>
+	<h1>School Portal — Dynamic Student Database</h1>
+	<p>Total Registered Students: {{ total_students }} | Registered Courses: {{ total_courses }}</p>
+	
+	<table border="1" cellpadding="8">
+    	<tr><th>Student Name</th><th>Enrolled Course</th></tr>
+    	{% for s in students %}
+    	<tr>
+        	<td>{{ s.first_name }} {{ s.last_name }}</td>
+        	<td>{{ s.course.name }} ({{ s.course.code }})</td>
+    	</tr>
+    	{% empty %}
+    	<tr><td colspan="2">No students registered yet.</td></tr>
+    	{% endfor %}
+	</table>
+</body>
+</html> 

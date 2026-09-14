@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple daily calorie tracker.">
+  <title>Daily calorie tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Daily wellness</p>
+        <h1>Calorie tracker</h1>
+        <p class="hero-copy">Keep a clear, kind record of what fuels you today.</p>
+      </div>
+      <div class="date-badge" aria-label="Selected date">
+        <span id="todayLabel"></span>
+      </div>
+    </header>
+
+    <section class="summary-grid" aria-label="Daily summary">
+      <div class="summary-card summary-card-accent">
+        <span class="summary-label">Today's calories</span>
+        <strong id="totalCalories">0</strong>
+        <span class="summary-unit">kcal consumed</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Food items</span>
+        <strong id="itemCount">0</strong>
+        <span class="summary-unit">logged today</span>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p id="quoteText">Small, consistent choices add up.</p>
+      </div>
+    </section>
+
+    <section class="tracker-layout">
+      <div class="panel form-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Add to your day</p>
+            <h2 id="formTitle">Log a food item</h2>
+          </div>
+        </div>
+
+        <form id="foodForm" novalidate>
+          <div class="field-group">
+            <label for="foodName">Food name</label>
+            <input id="foodName" name="foodName" type="text" placeholder="e.g. Avocado toast" maxlength="80" required>
+            <small class="field-error" id="foodNameError"></small>
+          </div>
+          <div class="field-group">
+            <label for="calories">Calories</label>
+            <div class="input-with-unit">
+              <input id="calories" name="calories" type="number" min="1" max="99999" step="1" placeholder="e.g. 320" required>
+              <span>kcal</span>
+            </div>
+            <small class="field-error" id="caloriesError"></small>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit" id="submitButton">Add food</button>
+            <button class="button button-quiet hidden" type="button" id="cancelEditButton">Cancel</button>
+          </div>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="panel entries-panel">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Your log</p>
+            <h2>Today's food</h2>
+          </div>
+          <button class="button button-danger-quiet" type="button" id="resetButton">Reset day</button>
+        </div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon" aria-hidden="true">＋</div>
+          <h3>Nothing logged yet</h3>
+          <p>Add your first food item to start today's record.</p>
+        </div>
+        <ul id="foodList" class="food-list" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <footer class="personal-message" id="personalMessage" role="status" aria-live="polite">
+      Ready when you are. Every entry is a useful snapshot.
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

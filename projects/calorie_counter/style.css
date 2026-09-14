@@ -1,0 +1,98 @@
+:root {
+  --ink: #19332d;
+  --muted: #6b7d77;
+  --line: #dce8e3;
+  --paper: #f7faf8;
+  --white: #ffffff;
+  --mint: #d7f0e7;
+  --green: #28745b;
+  --green-dark: #1b5643;
+  --coral: #c76d57;
+  --shadow: 0 18px 45px rgba(35, 76, 62, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Avenir Next", Avenir, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { width: min(1080px, calc(100% - 40px)); margin: 0 auto; padding: 54px 0 34px; }
+.hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+.eyebrow { margin: 0 0 8px; color: var(--green); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 10px; font-size: clamp(2.4rem, 6vw, 4.7rem); letter-spacing: -0.065em; line-height: 0.95; }
+h2 { margin-bottom: 0; font-size: 1.18rem; letter-spacing: -0.02em; }
+h3 { margin-bottom: 8px; font-size: 1rem; }
+.hero-copy { max-width: 440px; margin-bottom: 0; color: var(--muted); font-size: 1.05rem; }
+.date-badge { padding: 13px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--green-dark); font-size: 0.86rem; font-weight: 700; white-space: nowrap; box-shadow: var(--shadow); }
+
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 15px; margin-bottom: 22px; }
+.summary-card, .quote-card, .panel { border: 1px solid var(--line); border-radius: 20px; background: var(--white); box-shadow: var(--shadow); }
+.summary-card { min-height: 156px; padding: 24px; display: flex; flex-direction: column; justify-content: center; }
+.summary-card-accent { background: var(--green); color: var(--white); border-color: var(--green); }
+.summary-label { font-size: 0.82rem; font-weight: 700; }
+.summary-card:not(.summary-card-accent) .summary-label { color: var(--muted); }
+.summary-card strong { margin: 7px 0 3px; font-size: 2.7rem; letter-spacing: -0.06em; line-height: 1; }
+.summary-unit { font-size: 0.76rem; opacity: 0.75; }
+.quote-card { position: relative; display: flex; align-items: center; padding: 28px 30px 28px 60px; overflow: hidden; background: #edf7f3; }
+.quote-card p { max-width: 290px; margin: 0; color: var(--green-dark); font-size: 1.12rem; font-weight: 650; line-height: 1.45; }
+.quote-mark { position: absolute; left: 22px; top: 16px; color: #a5d4c3; font-family: Georgia, serif; font-size: 5rem; line-height: 1; }
+
+.tracker-layout { display: grid; grid-template-columns: minmax(270px, 0.8fr) minmax(400px, 1.2fr); gap: 22px; }
+.panel { padding: 27px; }
+.section-heading { margin-bottom: 25px; }
+.section-heading-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.field-group { margin-bottom: 18px; }
+label { display: block; margin-bottom: 8px; font-size: 0.83rem; font-weight: 750; }
+input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 11px; outline: none; background: #fbfdfc; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; }
+input:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(40, 116, 91, 0.12); }
+.input-with-unit { position: relative; }
+.input-with-unit input { padding-right: 52px; }
+.input-with-unit span { position: absolute; top: 50%; right: 14px; color: var(--muted); font-size: 0.8rem; transform: translateY(-50%); }
+.field-error { display: block; min-height: 17px; margin-top: 5px; color: var(--coral); font-size: 0.75rem; }
+.form-actions { display: flex; gap: 10px; margin-top: 4px; }
+.button { border: 0; border-radius: 10px; padding: 11px 16px; font-size: 0.82rem; font-weight: 800; transition: transform 0.15s, background 0.15s; }
+.button:hover { transform: translateY(-1px); }
+.button-primary { flex: 1; background: var(--green); color: var(--white); }
+.button-primary:hover { background: var(--green-dark); }
+.button-quiet { background: #eef4f1; color: var(--green-dark); }
+.button-danger-quiet { padding: 8px 11px; background: transparent; color: var(--coral); font-size: 0.75rem; }
+.form-status { min-height: 18px; margin: 14px 0 0; color: var(--green); font-size: 0.78rem; }
+.hidden { display: none; }
+
+.empty-state { padding: 34px 20px; border: 1px dashed var(--line); border-radius: 14px; text-align: center; }
+.empty-state p { margin-bottom: 0; color: var(--muted); font-size: 0.84rem; }
+.empty-icon { display: grid; width: 38px; height: 38px; margin: 0 auto 13px; place-items: center; border-radius: 50%; background: var(--mint); color: var(--green); font-size: 1.4rem; }
+.food-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.food-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 15px; border: 1px solid var(--line); border-radius: 12px; background: #fcfefd; }
+.food-name { margin: 0 0 3px; font-size: 0.9rem; font-weight: 750; overflow-wrap: anywhere; }
+.food-time { color: var(--muted); font-size: 0.72rem; }
+.food-meta { display: flex; align-items: center; gap: 14px; }
+.food-calories { color: var(--green-dark); font-size: 0.85rem; font-weight: 800; white-space: nowrap; }
+.icon-button { padding: 5px; border: 0; background: transparent; color: var(--muted); font-size: 1rem; }
+.icon-button:hover { color: var(--coral); }
+.personal-message { margin-top: 18px; padding: 16px 20px; border-radius: 14px; background: #eaf4f0; color: var(--green-dark); font-size: 0.86rem; text-align: center; }
+
+@media (max-width: 760px) {
+  .app-shell { width: min(100% - 28px, 600px); padding-top: 32px; }
+  .hero { align-items: flex-start; flex-direction: column; }
+  .date-badge { align-self: flex-start; }
+  .summary-grid, .tracker-layout { grid-template-columns: 1fr; }
+  .summary-card { min-height: 120px; }
+  .quote-card { min-height: 130px; }
+  .panel { padding: 21px; }
+}
+
+@media (max-width: 420px) {
+  .section-heading-row { align-items: center; }
+  .food-item { align-items: flex-start; }
+  .food-meta { gap: 7px; flex-direction: column; align-items: flex-end; }
+}
